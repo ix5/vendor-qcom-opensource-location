@@ -6874,7 +6874,7 @@ locClientStatusEnumType LocApiV02::locSyncSendReq(uint32_t req_id,
             timeout_msec, ind_id, ind_payload_ptr);
     if (eLOC_CLIENT_FAILURE_ENGINE_BUSY == status ||
             (eLOC_CLIENT_SUCCESS == status && nullptr != ind_payload_ptr &&
-            eQMI_LOC_ENGINE_BUSY_V02 == *((qmiLocStatusEnumT_v02*)ind_payload_ptr))) {
+            eQMI_LOC_ENGINE_BUSY_V02 == *((locClientStatusEnumType*)ind_payload_ptr))) {
         if (mResenders.empty() && ((mQmiMask & QMI_LOC_EVENT_MASK_ENGINE_STATE_V02) == 0)) {
             locClientRegisterEventMask(clientHandle,
                                        mQmiMask | QMI_LOC_EVENT_MASK_ENGINE_STATE_V02, isMaster());
