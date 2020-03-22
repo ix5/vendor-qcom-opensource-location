@@ -136,5 +136,6 @@ typedef void* qmi_client_type;
 
 // Provided by qcom library
 //qmi_idl_type_table_object common_qmi_idl_type_table_object_v01;
+extern qmi_idl_type_table_object common_qmi_idl_type_table_object_v01;
 
 #endif /* QMI_IDL_LIB_H */

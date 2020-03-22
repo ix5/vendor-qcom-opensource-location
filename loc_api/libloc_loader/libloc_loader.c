@@ -12,6 +12,8 @@
 //#include "../include/dsi_netctrl.h"
 #include "libloc_loader.h"
 
+qmi_idl_type_table_object common_qmi_idl_type_table_object_v01;
+
 void *lib_handle = NULL;
 
 /*
@@ -48,8 +50,6 @@ void load_from_libqmi_cci() {
 }
 
 void load_from_libqmi_common_so() {
-    // Provided by qcom library
-    qmi_idl_type_table_object common_qmi_idl_type_table_object_v01;
     lib_handle = dlopen(LIBQMI_COMMON_SO, RTLD_NOW);
     if (!lib_handle) {
         ALOGE("%s: DLOPEN failed for %s", __func__, LIBQMI_COMMON_SO);

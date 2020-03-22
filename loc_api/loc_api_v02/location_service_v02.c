@@ -8053,8 +8053,6 @@ static const qmi_idl_message_table_entry loc_message_table_v02[] = {
 /* Predefine the Type Table Object */
 static const qmi_idl_type_table_object loc_qmi_idl_type_table_object_v02;
 
-qmi_idl_type_table_object common_qmi_idl_type_table_object_v01;
-
 /*Referenced Tables Array*/
 static const qmi_idl_type_table_object *loc_qmi_idl_type_table_object_referenced_tables_v02[] =
 {&loc_qmi_idl_type_table_object_v02, &common_qmi_idl_type_table_object_v01};
