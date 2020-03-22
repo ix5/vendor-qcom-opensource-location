@@ -22,7 +22,9 @@ enum qmi_error_type_v01 {
         QMI_ERR_DEVICE_IN_USE_V01 = 0x0017,
         QMI_ERR_INVALID_ID_V01 = 0x0029,
         QMI_ERR_INVALID_ARG_V01 = 0x0030,
+        QMI_ERR_INVALID_MESSAGE_ID_V01 = 0x0039,
         QMI_ERR_ENCODING_V01 = 0x003A,
+        QMI_ERR_SESSION_OWNERSHIP_V01 = 0x0043,
         QMI_ERR_INCOMPATIBLE_STATE_V01 = 0x005A,
         QMI_ERR_NOT_SUPPORTED_V01 = 0x005E,
         QMI_ERR_TYPE_MAX_ENUM_VAL_V01 = INT_MAX,
@@ -107,8 +109,15 @@ typedef struct {
     uint16_t msg_len;
 } qmi_idl_service_message_table_entry;
 
-// Forward declaration
-struct qmi_idl_type_table_object;
+typedef struct qmi_idl_type_table_object {
+    uint16_t num_types;
+    uint16_t num_messages;
+    uint8_t num_tables;
+    const qmi_idl_type_table_entry *type_table;
+    const qmi_idl_message_table_entry *message_table;
+    const struct qmi_idl_type_table_object **type_table_object;
+    const void *unk1;
+} qmi_idl_type_table_object;
 
 typedef struct qmi_idl_service_object {
     uint32_t unk1;
@@ -122,20 +131,10 @@ typedef struct qmi_idl_service_object {
     struct qmi_idl_service_object *parent;
 } qmi_idl_service_object;
 
-typedef struct qmi_idl_type_table_object {
-    uint16_t num_types;
-    uint16_t num_messages;
-    uint8_t num_tables;
-    const qmi_idl_type_table_entry *type_table;
-    const qmi_idl_message_table_entry *message_table;
-    const struct qmi_idl_type_table_object **type_table_object;
-    const void *unk1;
-} qmi_idl_type_table_object;
-
 // Opague pointer allocated and used by external library
 typedef void* qmi_client_type;
 
 // Provided by qcom library
-qmi_idl_type_table_object common_qmi_idl_type_table_object_v01;
+//qmi_idl_type_table_object common_qmi_idl_type_table_object_v01;
 
 #endif /* QMI_IDL_LIB_H */

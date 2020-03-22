@@ -33,8 +33,11 @@
 #include <stdbool.h>
 #include <inttypes.h>
 
-#include "../include/qmi_client.h"
-#include "../include/qmi_idl_lib.h"
+//#include "../include/qmi_client.h"
+//#include "<qmi_client.h>"
+#include "qmi_client.h"
+//#include "../include/qmi_idl_lib.h"
+#include "qmi_idl_lib.h"
 
 #if defined( _ANDROID_)
 #define LOG_NDEBUG 0
@@ -42,6 +45,7 @@
 #endif //_ANDROID_
 
 #include <loc_pla.h>
+#include <loc_cfg.h>
 #include "loc_api_v02_client.h"
 #include "loc_util_log.h"
 #include "loc_api_v02_log.h"

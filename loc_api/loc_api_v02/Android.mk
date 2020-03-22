@@ -28,15 +28,18 @@ LOCAL_SRC_FILES = \
 LOCAL_CFLAGS += \
     -fno-short-enums \
     -D_ANDROID_
+#    -Wno-error
 
 ## Includes
 LOCAL_C_INCLUDES := \
 
 LOCAL_HEADER_LIBRARIES := \
+    libloc_api_qmi_headers \
     libloc_core_headers \
     libgps.utils_headers \
     libloc_pla_headers \
     liblocation_api_headers
+
 LOCAL_CFLAGS += $(GNSS_CFLAGS)
 include $(BUILD_SHARED_LIBRARY)
 

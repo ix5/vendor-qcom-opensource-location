@@ -42,7 +42,7 @@
 #include <loc_api_sync_req.h>
 #include <loc_api_v02_client.h>
 #include <loc_util_log.h>
-#include <gps_extended.h>
+//#include <gps_extended.h>
 #include "loc_pla.h"
 #include <loc_cfg.h>
 #include <LocContext.h>
@@ -6874,7 +6874,7 @@ locClientStatusEnumType LocApiV02::locSyncSendReq(uint32_t req_id,
             timeout_msec, ind_id, ind_payload_ptr);
     if (eLOC_CLIENT_FAILURE_ENGINE_BUSY == status ||
             (eLOC_CLIENT_SUCCESS == status && nullptr != ind_payload_ptr &&
-            eQMI_LOC_ENGINE_BUSY_V02 == *((locClientStatusEnumType*)ind_payload_ptr))) {
+            eLOC_CLIENT_FAILURE_ENGINE_BUSY == *((locClientStatusEnumType*)ind_payload_ptr))) {
         if (mResenders.empty() && ((mQmiMask & QMI_LOC_EVENT_MASK_ENGINE_STATE_V02) == 0)) {
             locClientRegisterEventMask(clientHandle,
                                        mQmiMask | QMI_LOC_EVENT_MASK_ENGINE_STATE_V02, isMaster());
