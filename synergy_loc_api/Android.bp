@@ -1,0 +1,42 @@
+cc_library_headers {
+    name: "libsynergyloc_api_headers",
+    vendor: true,
+    export_include_dirs: [
+        ".",
+    ],
+}
+
+cc_library_shared {
+    name: "libsynergy_loc_api",
+    vendor: true,
+
+    defaults: ["opensource_location_gnss_defaults"],
+
+    cflags: [
+        // BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET is true for SODP
+        "-DPDK_FEATURE_SET",
+        "-fno-short-enums",
+        "-D_ANDROID_",
+    ],
+
+    shared_libs: [
+        "libutils",
+        "libcutils",
+        "libloc_core",
+        "libgps.utils",
+        "libdl",
+        "liblog",
+        "libloc_loader",
+    ],
+
+    srcs: ["SynergyLocApi.cpp"],
+
+    header_libs: [
+        "libloc_loader_headers",
+        "libloc_core_headers",
+        "libgps.utils_headers",
+        "libloc_pla_headers",
+        "loc_sll_if_headers",
+        "liblocation_api_headers",
+    ],
+}

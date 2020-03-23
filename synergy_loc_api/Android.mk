@@ -1,3 +1,5 @@
+ifeq ($(MY_BUILDGUARD_H),true)
+
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -33,6 +35,7 @@ LOCAL_CFLAGS += \
 
 ## Includes
 LOCAL_HEADER_LIBRARIES := \
+    libloc_loader_headers \
     libloc_core_headers \
     libgps.utils_headers \
     libloc_pla_headers \
@@ -46,3 +49,5 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := libsynergyloc_api_headers
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)
 include $(BUILD_HEADER_LIBRARY)
+
+endif # MY_BUILDGUARD_H

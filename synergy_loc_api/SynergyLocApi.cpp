@@ -47,7 +47,7 @@
 #include <SynergyLocApi.h>
 
 extern "C" {
-#include <libloc_loader/libloc_loader.h>
+#include "libloc_loader.h"
 }
 
 using namespace std;

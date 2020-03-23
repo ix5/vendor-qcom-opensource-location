@@ -1,0 +1,25 @@
+cc_library_shared {
+    name: "libloc_socket",
+    defaults: ["opensource_location_gnss_defaults"],
+    vendor: true,
+    srcs: [
+        "LocSocket.cpp",
+    ],
+    shared_libs: [
+        "libutils",
+        "libcutils",
+        "liblog",
+        "libgps.utils",
+    ],
+    cflags: [
+        "-fno-short-enums",
+        "-D_ANDROID_",
+    ],
+    header_libs: [
+        "libloc_core_headers",
+        "libgps.utils_headers",
+        "libloc_pla_headers",
+        "liblocation_api_headers",
+    ],
+    // QSOCKET/libqsocket is unused on 4.14+
+}

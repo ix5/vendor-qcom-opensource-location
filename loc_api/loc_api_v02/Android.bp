@@ -1,0 +1,46 @@
+cc_library_headers {
+    name: "libloc_api_v02_headers",
+    vendor: true,
+    export_include_dirs: [
+        ".",
+    ],
+}
+
+cc_library_shared {
+    name: "libloc_api_v02",
+    vendor: true,
+
+    defaults: ["opensource_location_gnss_defaults"],
+
+    shared_libs: [
+        "libutils",
+        "libcutils",
+        "libloc_core",
+        "libgps.utils",
+        "libdl",
+        "liblog",
+        "libloc_loader",
+    ],
+
+    srcs: [
+        "LocApiV02.cpp",
+        "loc_api_v02_log.cpp",
+        "loc_api_v02_client.cpp",
+        "loc_api_sync_req.cpp",
+        "location_service_v02.c",
+    ],
+
+    cflags: [
+        "-fno-short-enums",
+        "-D_ANDROID_",
+    ],
+
+    header_libs: [
+        "libloc_loader_headers",
+        "libloc_api_qmi_headers",
+        "libloc_core_headers",
+        "libgps.utils_headers",
+        "libloc_pla_headers",
+        "liblocation_api_headers",
+    ],
+}
