@@ -36,9 +36,7 @@
 #include <sys/ioctl.h>
 #include <poll.h>
 #include "qmi_socket.h"
-extern "C" {
 #include "libloc_loader.h"
-}
 #else
 #include <endian.h>
 #include <linux/qrtr.h>
